@@ -13,4 +13,9 @@ app.get("/hello", (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+
+if (require.main === module) {
+  app.listen(port, () => console.log(`Listening on port ${port}`));
+}
+
+module.exports = app;
